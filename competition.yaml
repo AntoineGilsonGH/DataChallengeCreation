@@ -1,9 +1,8 @@
 version: 2
-title: Templat competition - Dummy classification
-description: Dummy classification task
+title: Alpine Snow Depth Forecasting - JO 2030
+description: Predict snow depth in the French Alps 7 days ahead using meteorological data
 image: logo.png
-registration_auto_approve: False  # if True, do not require approval from admin to join the comp
-
+registration_auto_approve: False
 terms: pages/terms.md
 pages:
   - title: Participation
@@ -12,49 +11,54 @@ pages:
     file: pages/seed.md
   - title: Timeline
     file: pages/timeline.md
-
 tasks:
   - index: 0
-    name: Developement Task
-    description: 'Tune models with training data, test against examples contained in public test data'
+    name: Development Task
+    description: 'Tune models with training data (2020-2024), test against public test set (winter 2024-2025)'
     input_data: dev_phase/input_data/
     reference_data: dev_phase/reference_data/
     ingestion_program: ingestion_program/
     scoring_program: scoring_program/
-
 solutions:
   - index: 0
     tasks:
-    - 0
+      - 0
     path: solution/
-
-
 phases:
   - name: Development Phase
-    description: 'Development phase: tune your models.'
-    start: 10-07-2025
-    end: 03-31-2026
+    description: 'Development phase: tune your models on the 2024-2025 winter season.'
+    start: 03-07-2026
+    end: 06-30-2026
+    max_submissions_per_day: 40
     tasks:
       - 0
-
 leaderboards:
   - title: Results
     key: main
     columns:
-      - title: Test Accuracy
-        key: test
+      - title: RMSE (m)
+        key: test_rmse
         index: 0
         sorting: asc
-      - title: Private Test Accuracy
-        key: private_test
+      - title: MAE (m)
+        key: test_mae
         index: 1
+        sorting: asc
+      - title: Private RMSE (m)
+        key: private_test_rmse
+        index: 2
+        sorting: asc
+        hidden: True
+      - title: Private MAE (m)
+        key: private_test_mae
+        index: 3
         sorting: asc
         hidden: True
       - title: Train time
         key: train_time
-        index: 2
+        index: 4
         sorting: desc
       - title: Test time
         key: test_time
-        index: 3
+        index: 5
         sorting: desc

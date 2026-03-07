@@ -1,18 +1,25 @@
 # Terms and Conditions
 
-## Lorem Ipsum
+## Data usage
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The data provided in this challenge originates from Météo-France's SIM
+(Système d'Information de la Montagne) model and is made available for the
+sole purpose of this competition. Participants may not redistribute or use
+the data outside of this challenge without explicit authorization.
 
-## Sed ut perspiciatis
+## Submissions
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae 
-ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit 
-aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam 
-est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore 
-et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, 
-nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae 
-consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+Participants agree to submit only original work. Any form of manual labeling
+of the test set or exploitation of data leakage will result in disqualification.
+
+## Leaderboard
+
+The public leaderboard during the development phase is based on the public test
+set (winter 2024-2025). The final ranking is determined by performance on the
+private test set (winter 2025-2026), which is only revealed at the end of the
+competition.
+
+## Reproducibility
+
+Participants are encouraged to use a fixed random seed in their submissions to
+ensure reproducibility of results.

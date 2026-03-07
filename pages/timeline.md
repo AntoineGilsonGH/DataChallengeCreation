@@ -1,11 +1,25 @@
 # Timeline
 
-## Development phase
-This phase should be used to tune your models, testing against a small
-set of testing data
+## Development Phase — until June 30, 2026
 
-## Final phase
-Resubmit your preferred submission from the development phase to test
-against a new set of testing data. Your model will be trained against
-the same set of training data as in the development phase. You may only
-make one submission to this phase, so choose wisely.
+Use this phase to develop and tune your models. Your submissions are evaluated
+against the **public test set**: winter season 2024-2025 (October 2024 → April 2025).
+
+You can submit as many times as you like and track your progress on the leaderboard.
+The leaderboard displays your **RMSE** on the public test set.
+
+## Final Phase
+
+At the end of the development phase, your best submission will be automatically
+evaluated against the **private test set**: winter season 2025-2026
+(October 2025 → April 2026) — a season that was not available during development.
+
+This is the score that will determine the final ranking.
+
+## Data split summary
+
+| Split | Period | Role |
+|---|---|---|
+| Train | Oct 2020 → Apr 2024 | Available to participants for training |
+| Public test | Oct 2024 → Apr 2025 | Leaderboard during development phase |
+| Private test | Oct 2025 → Apr 2026 | Final ranking — hidden until end |

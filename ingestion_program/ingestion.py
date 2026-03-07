@@ -5,21 +5,21 @@ from pathlib import Path
 
 import pandas as pd
 
-
 EVAL_SETS = ["test", "private_test"]
 
 
 def evaluate_model(model, X_test):
-
     y_pred = model.predict(X_test)
-    return pd.DataFrame(y_pred)
+    return pd.DataFrame(y_pred, columns=["HTEURNEIGE_J7"])
 
 
 def get_train_data(data_dir):
     data_dir = Path(data_dir)
-    training_dir = data_dir / "train"
-    X_train = pd.read_csv(training_dir / "train_features.csv")
-    y_train = pd.read_csv(training_dir / "train_labels.csv")
+    X_train = pd.read_csv(data_dir / "X_train.csv")
+    y_train = pd.read_csv(data_dir / "y_train.csv")
+    # Parse DATE — stored as string YYYY-MM-DD in our CSVs
+    X_train["DATE"] = pd.to_datetime(X_train["DATE"])
+    y_train["DATE"] = pd.to_datetime(y_train["DATE"])
     return X_train, y_train
 
 
@@ -31,20 +31,22 @@ def main(data_dir, output_dir):
     X_train, y_train = get_train_data(data_dir)
 
     print("Training the model")
-
     model = get_model()
-
     start = time.time()
-    model.fit(X_train, y_train)
+    model.fit(X_train, y_train["HTEURNEIGE_J7"])
     train_time = time.time() - start
+
     print("-" * 10)
     print("Evaluate the model")
     start = time.time()
     res = {}
     for eval_set in EVAL_SETS:
-        X_test = pd.read_csv(data_dir / eval_set / f"{eval_set}_features.csv")
+        # Each eval set has its own X_test.csv in a subdirectory
+        X_test = pd.read_csv(data_dir / eval_set / "X_test.csv")
+        X_test["DATE"] = pd.to_datetime(X_test["DATE"])
         res[eval_set] = evaluate_model(model, X_test)
     test_time = time.time() - start
+
     print("-" * 10)
     duration = train_time + test_time
     print(f"Completed Prediction. Total duration: {duration}")
@@ -53,9 +55,11 @@ def main(data_dir, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     with open(output_dir / "metadata.json", "w+") as f:
         json.dump(dict(train_time=train_time, test_time=test_time), f)
+
     for eval_set in EVAL_SETS:
         filepath = output_dir / f"{eval_set}_predictions.csv"
         res[eval_set].to_csv(filepath, index=False)
+
     print()
     print("Ingestion Program finished. Moving on to scoring")
 
@@ -84,9 +88,7 @@ if __name__ == "__main__":
         default="/app/ingested_program",
         help="",
     )
-
     args = parser.parse_args()
     sys.path.append(args.submission_dir)
     sys.path.append(Path(__file__).parent.resolve())
-
     main(Path(args.data_dir), Path(args.output_dir))
