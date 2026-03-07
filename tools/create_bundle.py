@@ -11,7 +11,7 @@ PHASE_DATA = ROOT_DIR / "dev_phase"
 
 BUNDLE_FILES = [
     ROOT_DIR / "competition.yaml",
-    ROOT_DIR / "logo.png",
+    ROOT_DIR / "logo_ski_datacamp.png",
     ROOT_DIR / "solution/submission.py",
 ]
 
