@@ -50,14 +50,3 @@ class SnowDepthModel:
         preds = self.model.predict(X[FEATURES])
         return preds.clip(min=0)
 ```
-
-## Ideas to improve the baseline
-
-- **Feature engineering**: add rolling means, lagged values (J-1, J-2...),
-  interaction terms between temperature and precipitation
-- **Spatial features**: exploit LAMBX/LAMBY to encode altitude or proximity
-  to mountain ranges
-- **Temporal features**: add day of year, week of season, year trend
-  to capture climate change signal
-- **Other models**: gradient boosting (XGBoost, LightGBM), neural networks,
-  or physical model hybrids

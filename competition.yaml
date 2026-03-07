@@ -1,10 +1,13 @@
 version: 2
-title: Alpine Snow Depth Forecasting - JO 2030
+title: Snow Depth Forecasting - French Alps
 description: Predict snow depth in the French Alps 7 days ahead using meteorological data
-image: logo.png
+image: logo_ski_datacamp.png
 registration_auto_approve: False
 terms: pages/terms.md
+docker_image: codalab/codalab-legacy:py39 
 pages:
+  - title: Description
+    file: pages/description.md
   - title: Participation
     file: pages/participate.md
   - title: Seed

@@ -1,6 +1,6 @@
 # How to Participate
 
-## Context
+## Reminder of the context
 
 The French Alps will host the 2030 Winter Olympics. In a context of accelerating
 climate change, snow conditions in mountain regions are increasingly uncertain.
