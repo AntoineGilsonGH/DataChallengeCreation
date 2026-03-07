@@ -22,6 +22,7 @@ tasks:
     reference_data: dev_phase/reference_data/
     ingestion_program: ingestion_program/
     scoring_program: scoring_program/
+    public_data: dev_phase/input_data/
 solutions:
   - index: 0
     tasks:
@@ -31,7 +32,7 @@ phases:
   - name: Development Phase
     description: 'Development phase: tune your models on the 2024-2025 winter season.'
     start: 03-07-2026
-    end: 06-30-2026
+    end: 05-30-2026
     max_submissions_per_day: 40
     tasks:
       - 0
