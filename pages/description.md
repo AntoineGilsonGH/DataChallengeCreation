@@ -67,3 +67,10 @@ at season boundaries.
 
 
 # Download / The data is available here by downloading in Get Started/Files/Input_Data
+
+It can also be downloaded through this link :
+
+| File | Description | Size |
+|---|---|---|
+| [X_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/X_train.csv) | Training features (winters 2020→2024) | ~70MB |
+| [y_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/y_train.csv) | Training labels — HTEURNEIGE_J7 | ~20MB |
