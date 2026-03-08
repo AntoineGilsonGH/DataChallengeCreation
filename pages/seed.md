@@ -9,7 +9,7 @@ You are free to replace the `RandomForestRegressor` with any model of your choic
 ```python
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-
+ 
 FEATURES = [
     "LAMBX", "LAMBY",
     "T", "TINF_H", "TSUP_H",
