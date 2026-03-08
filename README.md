@@ -79,21 +79,6 @@ at season boundaries.
 | Public test rows | **~200k** (winter 2024-2025) |
 | Private test rows | **~200k** (winter 2025-2026) |
 
-### Grid coverage
-
-The two figures below show the geographic coverage of the challenge data.
-Left: the selected Alpine grid points. Right: their location within France.
-
-![Alps grid points](pages/alps_grid.png)
-
-## Split
-
-| Split | Period | Role |
-|---|---|---|
-| Train | Oct 2020 → Apr 2024 | Available for training |
-| Public test | Oct 2024 → Apr 2025 | Leaderboard during development |
-| Private test | Oct 2025 → Apr 2026 | Final ranking — hidden |
-
 ## Repository structure
 
 ```
