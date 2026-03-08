@@ -26,7 +26,7 @@ def get_train_data(data_dir):
 def main(data_dir, output_dir):
     # Here, you can import info from the submission module, to evaluate the
     # submission
-    from submission import get_model
+    from solution.submission import get_model
 
     X_train, y_train = get_train_data(data_dir)
 
