@@ -1,6 +1,6 @@
 # Alpine Snow Depth Forecasting — French Alps 🏔️
 
-> *Can machine learning predict snow depth in the French Alps?*
+> *Can machine learning predict snow depth in the French Alps ?*
 
 ## Context
 
