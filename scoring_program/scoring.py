@@ -10,9 +10,6 @@ EVAL_SETS = ["test", "private_test"]
 def compute_metrics(predictions, targets):
     """
     Compute RMSE and MAE for snow depth prediction.
-
-    - RMSE : Root Mean Squared Error in meters — main metric, lower is better
-    - MAE  : Mean Absolute Error in meters — secondary metric
     """
     y_pred = predictions.fillna(0).values.flatten()
     y_true = targets["HTEURNEIGE_J7"].values

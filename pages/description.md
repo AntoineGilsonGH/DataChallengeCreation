@@ -11,7 +11,7 @@ Alps, using daily meteorological observations from Météo-France's SIM model.
 
 ## Task
 
-**Regression** — predict `HTEURNEIGE_J7`: snow depth (in meters) at day J+7,
+The task you will have to perform is a **Regression**, and more particularly regress the target variable `HTEURNEIGE_J7`: **snow depth (in meters) at day J+7**,
 for each Alpine grid point, given meteorological observations at day J.
 
 ## Data
@@ -66,10 +66,4 @@ at season boundaries.
 | Private test rows | **~200k** (winter 2025-2026) |
 
 
-# Download / The data is available here by downloading :
-| File | Description | Size |
-|---|---|---|
-| [X_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/X_train.csv) | Training features (winters 2020→2024) | ~70MB |
-| [y_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/y_train.csv) | Training labels — HTEURNEIGE_J7 | ~20MB |
-
-> ⚠️ `X_test.csv` is not provided — it is used server-side by Codabench for evaluation only.
+# Download / The data is available here by downloading in Get Started/Files/Input_Data

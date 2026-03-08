@@ -14,6 +14,8 @@ pages:
     file: pages/seed.md
   - title: Timeline
     file: pages/timeline.md
+  - title: Motivation
+    file: pages/motivation.md
 tasks:
   - index: 0
     name: Development Task
@@ -32,7 +34,7 @@ phases:
   - name: Development Phase
     description: 'Development phase: tune your models on the 2024-2025 winter season.'
     start: 03-07-2026
-    end: 05-30-2026
+    end: 03-30-2026
     max_submissions_per_day: 40
     tasks:
       - 0

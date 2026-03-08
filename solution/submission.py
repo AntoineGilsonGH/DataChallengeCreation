@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
 # Features available in X_train and X_test
-# Feel free to engineer new features on top of these!
+
 FEATURES = [
     "LAMBX", "LAMBY",        # spatial position
     "T", "TINF_H", "TSUP_H", # temperature (mean, min, max)

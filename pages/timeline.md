@@ -1,16 +1,16 @@
 # Timeline
 
-## Development Phase — until June 30, 2026
+## Development Phase — until March 30, 2026
 
 Use this phase to develop and tune your models. Your submissions are evaluated
 against the **public test set**: winter season 2024-2025 (October 2024 → April 2025).
 
-You can submit as many times as you like and track your progress on the leaderboard.
+You can submit about as many times as you like (40 times a day and 200 times overall) and track your progress on the leaderboard.
 The leaderboard displays your **RMSE** on the public test set.
 
 ## Final Phase
 
-At the end of the development phase, your best submission will be automatically
+At the end of the development phase, your best submission will be automatically. We chose arbitrarily the date March 30th as the end of the development phase.
 evaluated against the **private test set**: winter season 2025-2026
 (October 2025 → April 2026) — a season that was not available during development.
 
