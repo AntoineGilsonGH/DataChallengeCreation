@@ -73,3 +73,5 @@ at season boundaries.
 | [y_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/y_train.csv) | Training labels — HTEURNEIGE_J7 | ~20MB |
 
 > ⚠️ `X_test.csv` is not provided — it is used server-side by Codabench for evaluation only.
+
+*❄️ Don’t get avalanched into a random forest ❄️*
