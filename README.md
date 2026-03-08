@@ -11,30 +11,18 @@ Alps, using daily meteorological observations from Météo-France's SIM model.
 
 ## Task
 
-**Regression** — predict `HTEURNEIGE_J7`: snow depth (in meters) at day J+7,
+The task you will have to perform is a **Regression**, and more particularly regress the target variable `HTEURNEIGE_J7`: **snow depth (in meters) at day J+7**,
 for each Alpine grid point, given meteorological observations at day J.
 
-- **Baseline RMSE**: ~0.12m (Random Forest, see `solution/submission.py`)
-- **Metric**: RMSE (primary), MAE (secondary)
-
 ## Data
-
 Data comes from **Météo-France's SIM model** (Système d'Information de la Montagne),
 a hydrometeorological reanalysis at **8km resolution** covering France.
+It can be accessed at [meteo.data.gouv.fr](https://meteo.data.gouv.fr/datasets/6569b27598256cc583c917a7).
 
-### Download
-
-| File | Description | Size |
-|---|---|---|
-| [X_train.csv](#) | Training features (winters 2020→2024) | ~70MB |
-| [y_train.csv](#) | Training labels — HTEURNEIGE_J7 | ~20MB |
-
-> ⚠️ `X_test.csv` is not provided — it is used server-side by Codabench for evaluation only.
-
-### Preprocessing applied
+### Preprocessing applied to Météo-France's SIM Data for the challenge
 
 The raw SIM dataset covers all of France at 8km resolution with 29 meteorological
-variables. The following preprocessing was applied to create the challenge dataset:
+variables, on a daily basis since 1960. This makes the whole data really heavy to handle. To keep this challenge accessible and focused on modeling quality rather than computational power, several deliberate choices were made to limit the size and complexity of the dataset. The following preprocessing was applied to create the challenge dataset:
 
 **1. Geographic filtering — French Alps only**
 
@@ -59,10 +47,8 @@ snow signal and would inflate the dataset with trivial zero-snow predictions.
 
 **4. Feature selection — leakage prevention**
 
-Variables that directly encode the snow state at J+7 (e.g. `HTEURNEIGE6`,
+Variables that might directly encode the snow state at J+7 or were too correlated to other variables (e.g. `HTEURNEIGE6`,
 `HTEURNEIGEX`, `RESR_NEIGE6`) were excluded to prevent data leakage.
-Only variables reflecting the state of the snowpack **at day J** are provided
-as features, alongside atmospheric forcing variables.
 
 **5. Target construction**
 
@@ -79,55 +65,11 @@ at season boundaries.
 | Public test rows | **~200k** (winter 2024-2025) |
 | Private test rows | **~200k** (winter 2025-2026) |
 
-## Repository structure
 
-```
-├── competition.yaml              # Codabench competition config
-├── ingestion_program/
-│   └── ingestion.py              # Loads data, calls get_model(), saves predictions
-├── scoring_program/
-│   └── scoring.py                # Computes RMSE and MAE from predictions
-├── solution/
-│   └── submission.py             # Baseline Random Forest — submit this as a starting point
-├── pages/                        # Markdown pages displayed on Codabench
-├── dev_phase/                    # Data for development phase (public test)
-│   ├── input_data/
-│   │   ├── X_train.csv
-│   │   ├── y_train.csv
-│   │   ├── test/X_test.csv
-│   │   └── private_test/X_test.csv
-│   └── reference_data/
-│       ├── test_labels.csv
-│       └── private_test_labels.csv
-└── tools/
-    ├── create_bundle.py          # Creates bundle.zip for Codabench upload
-    └── Dockerfile                # Docker image used by Codabench
-```
+### Download / The data is available here by downloading :
+| File | Description | Size |
+|---|---|---|
+| [X_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/X_train.csv) | Training features (winters 2020→2024) | ~70MB |
+| [y_train.csv](https://minio.lab.sspcloud.fr/antoinezerrrr/datacamp_meteo/y_train.csv) | Training labels — HTEURNEIGE_J7 | ~20MB |
 
-## Local testing
-
-```bash
-# Test ingestion
-python ingestion_program/ingestion.py \
-  --data-dir dev_phase/input_data/ \
-  --output-dir ingestion_res/ \
-  --submission-dir solution/
-
-# Test scoring
-python scoring_program/scoring.py \
-  --reference-dir dev_phase/reference_data/ \
-  --prediction-dir ingestion_res/ \
-  --output-dir scoring_res/
-
-# Check scores
-cat scoring_res/scores.json
-
-# Create bundle
-python tools/create_bundle.py
-```
-
-## Submit to Codabench
-
-1. Implement your model in `submission.py` following the structure in `solution/submission.py`
-2. Create a zip: `zip submission.zip submission.py`
-3. Upload on [Codabench](https://www.codabench.org)
+> ⚠️ `X_test.csv` is not provided — it is used server-side by Codabench for evaluation only.
